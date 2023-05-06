@@ -14,14 +14,14 @@ const initialStateFormData = {
 const FormEmployeeUpdate = (props: FormEmployeeUpdatePropsType) => {
   const { setShowForm } = props;
 
-  const [formData, setFormData] = useReducer(formReducer, initialStateFormData);
+  const [, setFormData] = useReducer(formReducer, initialStateFormData);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (Object.keys(formData).length === 0) {
-      return console.log('formData is empty');
-    }
-    console.log(formData);
+    // if (Object.keys(formData).length === 0) {
+    //   return console.log('formData is empty');
+    // }
+    // console.log(formData);
   };
 
   return (
@@ -55,11 +55,11 @@ const FormEmployeeUpdate = (props: FormEmployeeUpdatePropsType) => {
       </div>
       <div className="input-type">
         <Input
-          type="text"
+          type="number"
           name="salary"
           placeholder="Salary"
           onChange={setFormData}
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          prependObject="Rp"
         />
       </div>
       <div className="input-type">
@@ -73,7 +73,7 @@ const FormEmployeeUpdate = (props: FormEmployeeUpdatePropsType) => {
       </div>
 
       <div className="flex gap-10 items-center">
-        <div className="form-check">
+        <div className="flex">
           <Input
             type="radio"
             name="status"
@@ -86,7 +86,7 @@ const FormEmployeeUpdate = (props: FormEmployeeUpdatePropsType) => {
             Active
           </label>
         </div>
-        <div className="form-check">
+        <div className="flex">
           <Input
             type="radio"
             name="status"
